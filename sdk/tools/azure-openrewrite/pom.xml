@@ -35,6 +35,12 @@
             <scope>compile</scope>
         </dependency>
 
+      <dependency>
+        <groupId>org.openrewrite</groupId>
+        <artifactId>rewrite-maven</artifactId>
+        <scope>compile</scope>
+      </dependency>
+
       <!-- To test on different JDKs multiple within CI,
       we need to include multiple rewrite-java test dependencies -->
       <dependency>
@@ -62,11 +68,7 @@
       </dependency>
 
         <!-- rewrite-maven dependency only necessary for Maven Recipe development -->
-        <dependency>
-            <groupId>org.openrewrite</groupId>
-            <artifactId>rewrite-maven</artifactId>
-            <scope>compile</scope>
-        </dependency>
+
 
         <dependency>
             <groupId>org.openrewrite</groupId>
