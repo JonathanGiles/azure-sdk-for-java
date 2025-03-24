@@ -27,125 +27,198 @@
         </dependencies>
     </dependencyManagement>
 
-    <dependencies>
-        <!-- rewrite-java dependencies only necessary for Java Recipe development -->
-        <dependency>
+    <profiles>
+      <profile>
+        <id>default</id>
+        <activation>
+          <activeByDefault>true</activeByDefault>
+        </activation>
+        <dependencies>
+          <!-- rewrite-java dependencies only necessary for Java Recipe development -->
+          <dependency>
             <groupId>org.openrewrite</groupId>
             <artifactId>rewrite-java</artifactId>
             <scope>compile</scope>
-        </dependency>
+          </dependency>
 
-      <dependency>
-        <groupId>org.openrewrite</groupId>
-        <artifactId>rewrite-maven</artifactId>
-        <scope>compile</scope>
-      </dependency>
+          <dependency>
+            <groupId>org.openrewrite</groupId>
+            <artifactId>rewrite-maven</artifactId>
+            <scope>compile</scope>
+          </dependency>
 
-      <!-- To test on different JDKs multiple within CI,
-      we need to include multiple rewrite-java test dependencies -->
-      <dependency>
-          <groupId>org.openrewrite</groupId>
-          <artifactId>rewrite-java-8</artifactId>
-          <scope>test</scope>
-      </dependency>
+          <!-- To test on different JDKs multiple within CI,
+          we need to include multiple rewrite-java test dependencies -->
+          <dependency>
+            <groupId>org.openrewrite</groupId>
+            <artifactId>rewrite-java-8</artifactId>
+            <scope>test</scope>
+          </dependency>
 
-      <dependency>
-        <groupId>org.openrewrite</groupId>
-        <artifactId>rewrite-java-11</artifactId>
-        <scope>test</scope>
-      </dependency>
+          <dependency>
+            <groupId>org.openrewrite</groupId>
+            <artifactId>rewrite-java-11</artifactId>
+            <scope>test</scope>
+          </dependency>
 
-      <dependency>
-        <groupId>org.openrewrite</groupId>
-        <artifactId>rewrite-java-17</artifactId>
-        <scope>test</scope>
-      </dependency>
+          <dependency>
+            <groupId>org.openrewrite</groupId>
+            <artifactId>rewrite-java-17</artifactId>
+            <scope>test</scope>
+          </dependency>
 
-      <dependency>
-        <groupId>org.openrewrite</groupId>
-        <artifactId>rewrite-java-21</artifactId>
-        <scope>test</scope>
-      </dependency>
+          <dependency>
+            <groupId>org.openrewrite</groupId>
+            <artifactId>rewrite-java-21</artifactId>
+            <scope>test</scope>
+          </dependency>
 
-        <!-- rewrite-maven dependency only necessary for Maven Recipe development -->
+          <!-- rewrite-maven dependency only necessary for Maven Recipe development -->
 
 
-        <dependency>
+          <dependency>
             <groupId>org.openrewrite</groupId>
             <artifactId>rewrite-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
+          </dependency>
+          <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.12.1</version> <!-- {x-version-update;org.junit.jupiter:junit-jupiter-api;external_dependency} -->
             <scope>test</scope>
-        </dependency>
-        <dependency>
+          </dependency>
+          <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.12.1</version> <!-- {x-version-update;org.junit.jupiter:junit-jupiter-engine;external_dependency} -->
             <scope>test</scope>
-        </dependency>
-        <!-- Optional dependency on assertJ to provide fluent assertions. -->
-        <dependency>
+          </dependency>
+          <!-- Optional dependency on assertJ to provide fluent assertions. -->
+          <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>3.22.0</version> <!-- {x-version-update;org.assertj:assertj-core;external_dependency} -->
             <scope>test</scope>
-        </dependency>
+          </dependency>
 
-        <dependency>
+          <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
             <version>2.17.2</version> <!-- {x-version-update;com.fasterxml.jackson.core:jackson-core;external_dependency} -->
-        </dependency>
-        <!-- Jackson Dataformat Smile -->
-        <dependency>
+          </dependency>
+          <!-- Jackson Dataformat Smile -->
+          <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-smile</artifactId>
             <version>2.17.2</version> <!-- {x-version-update;com.fasterxml.jackson.dataformat:jackson-dataformat-smile;external_dependency} -->
-        </dependency>
-        <dependency>
-          <groupId>com.fasterxml.jackson.core</groupId>
-          <artifactId>jackson-databind</artifactId>
-          <version>2.17.2</version> <!-- {x-version-update;com.fasterxml.jackson.core:jackson-databind;external_dependency} -->
-        </dependency>
-        <dependency>
+          </dependency>
+          <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.17.2</version> <!-- {x-version-update;com.fasterxml.jackson.core:jackson-databind;external_dependency} -->
+          </dependency>
+          <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.34</version> <!-- {x-version-update;org.projectlombok:lombok;external_dependency} -->
             <scope>provided</scope>
-        </dependency>
+          </dependency>
 
-        <!-- Library Test dependencies -->
-        <dependency>
-          <groupId>com.azure</groupId>
-          <artifactId>azure-core</artifactId>
-          <version>1.55.2</version> <!-- {x-version-update;com.azure:azure-core;dependency} -->
-          <scope>test</scope>
-        </dependency>
+          <!-- Library Test dependencies -->
+          <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-core</artifactId>
+            <version>1.55.2</version> <!-- {x-version-update;com.azure:azure-core;dependency} -->
+            <scope>test</scope>
+          </dependency>
 
-        <dependency>
-          <groupId>io.clientcore</groupId>
-          <artifactId>core</artifactId>
-          <version>1.0.0-beta.5</version>
-        </dependency>
+          <dependency>
+            <groupId>io.clientcore</groupId>
+            <artifactId>core</artifactId>
+            <version>1.0.0-beta.5</version>
+          </dependency>
 
-        <dependency>
+          <dependency>
             <groupId>com.azure</groupId>
             <artifactId>azure-ai-translation-text</artifactId>
             <version>1.1.1</version> <!-- {x-version-update;com.azure:azure-ai-translation-text;dependency} -->
             <scope>test</scope>
-        </dependency>
+          </dependency>
 
-        <dependency>
-          <groupId>com.azure</groupId>
-          <artifactId>azure-storage-blob</artifactId>
-          <version>12.29.0</version> <!-- {x-version-update;com.azure:azure-storage-blob;dependency} -->
-          <scope>test</scope>
-        </dependency>
-    </dependencies>
+          <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-storage-blob</artifactId>
+            <version>12.29.0</version> <!-- {x-version-update;com.azure:azure-storage-blob;dependency} -->
+            <scope>test</scope>
+          </dependency>
+        </dependencies>
+      </profile>
+
+      <profile>
+        <id>v1</id>
+        <dependencies>
+          <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-identity</artifactId>
+            <version>1.15.4</version>
+          </dependency>
+          <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-data-appconfiguration</artifactId>
+            <version>1.8.0</version>
+          </dependency>
+          <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-security-keyvault-keys</artifactId>
+            <version>4.9.3</version>
+          </dependency>
+          <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-security-keyvault-secrets</artifactId>
+            <version>4.9.3</version>
+          </dependency>
+          <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-security-keyvault-certificates</artifactId>
+            <version>4.7.3</version>
+          </dependency>
+          <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-security-keyvault-administration</artifactId>
+            <version>4.6.3</version>
+          </dependency>
+          <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-security-keyvault-jca</artifactId>
+            <version>2.10.0</version>
+          </dependency>
+
+          <!-- KeyVault JCA has a sample using Apache HttpClient -->
+          <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.14</version>
+          </dependency>
+
+          <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-storage-queue</artifactId>
+            <version>12.24.1</version>
+          </dependency>
+        </dependencies>
+      </profile>
+
+      <profile>
+        <id>v2</id>
+        <dependencies>
+          <dependency>
+            <groupId>io.clientcore</groupId>
+            <artifactId>core</artifactId>
+            <version>1.0.0-beta.7</version>
+          </dependency>
+        </dependencies>
+      </profile>
+    </profiles>
 
     <build>
         <plugins>
@@ -331,6 +404,22 @@
             <configuration>
               <skip>true</skip>
             </configuration>
+          </plugin>
+
+          <plugin>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-openrewrite-compiler-maven-plugin</artifactId>
+            <version>1.0.0-beta.1</version>
+            <configuration>
+              <targetProfiles>v1,v2</targetProfiles>
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>compile-golden-image</goal>
+                </goals>
+              </execution>
+            </executions>
           </plugin>
         </plugins>
     </build>

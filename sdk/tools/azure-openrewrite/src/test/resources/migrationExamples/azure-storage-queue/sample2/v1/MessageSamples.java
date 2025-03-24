@@ -21,7 +21,7 @@ public class MessageSamples {
         QueueServiceClient queueServiceClient = new QueueServiceClientBuilder().endpoint(queueServiceURL).buildClient();
 
         // Create a queue client
-        QueueClient queueClient = queueServiceClient.createQueue(SampleHelper.generateRandomName("enqueue", 15));
+        QueueClient queueClient = queueServiceClient.createQueue("randomName");
         for (int i = 0; i < 3; i++) {
             queueClient.sendMessage("Hello World");
         }

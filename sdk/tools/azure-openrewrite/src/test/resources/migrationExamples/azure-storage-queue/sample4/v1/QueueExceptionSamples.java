@@ -30,8 +30,7 @@ public class QueueExceptionSamples {
         // Create queue client.
         Response<QueueClient> queueClientResponse;
         try {
-            queueClientResponse = queueServiceClient.createQueueWithResponse(SampleHelper.generateRandomName("delete-not-exist",
-                16), null, Duration.ofSeconds(10), new Context("key1", "value1"));
+            queueClientResponse = queueServiceClient.createQueueWithResponse("randomName", null, Duration.ofSeconds(10), new Context("key1", "value1"));
             System.out.println("Successfully create the queue! Status code: " + queueClientResponse.getStatusCode());
         } catch (QueueStorageException e) {
             System.out.println(String.format("Error creating a queue. Error message: %s", e.getServiceMessage()));

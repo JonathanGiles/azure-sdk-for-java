@@ -15,7 +15,7 @@ public class QueueServiceSamples {
         // Build Queue Service Client using SAS Token
         String queueServiceURL = String.format("https://%s.queue.core.windows.net/?%s", ACCOUNT_NAME, SAS_TOKEN);
         QueueServiceClient queueServiceClient = new QueueServiceClientBuilder().endpoint(queueServiceURL).buildClient();
-        queueServiceClient.createQueue(SampleHelper.generateRandomName("create-queue", 16));
+        queueServiceClient.createQueue("randomName1");
 
         // Create another queue and list all queues, print the name and then delete the queue.
         queueServiceClient.createQueue(SampleHelper.generateRandomName("create-extra", 16));

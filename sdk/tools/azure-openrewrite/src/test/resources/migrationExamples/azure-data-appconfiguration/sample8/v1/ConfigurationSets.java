@@ -1,11 +1,8 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-package com.azure.data.appconfiguration;
-
-import com.azure.data.appconfiguration.models.ComplexConfiguration;
-import com.azure.data.appconfiguration.models.ConfigurationSetting;
-import com.azure.data.appconfiguration.models.SettingSelector;
+import com.azure.data.appconfiguration.*;
+import com.azure.data.appconfiguration.models.*;
 import com.azure.json.JsonProviders;
 import com.azure.json.JsonWriter;
 import reactor.core.publisher.Flux;
